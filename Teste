@@ -1,0 +1,77 @@
+#1) Ao final do processamento o valor da variável SOMA será 91.
+
+#2)
+def fibonacci(n):
+    a, b = 0, 1
+    for i in range(n):
+        a, b = b, a + b
+    return a
+
+def pertence_a_sequencia(numero):
+    for i in range(100):
+        fib = fibonacci(i)
+        if fib == numero:
+            return True
+        elif fib > numero:
+            return False
+    return False
+
+numero = int(input("Informe um número: "))
+if pertence_a_sequencia(numero):
+    print("O número informado pertence à sequência de Fibonacci.")
+else:
+    print("O número informado NÃO pertence à sequência de Fibonacci.")
+
+#3)
+import json
+
+with open("faturamento_diario.json", "r") as file:
+    fat_diario = json.load(file)
+
+fat_diario = [dia for dia in fat_diario if dia != 0]
+
+menor_fat = min(fat_diario)
+maior_fat = max(fat_diario)
+media = sum(fat_diario) / len(fat_diario)
+dias_acima_media = sum(1 for i in fat_diario if i > media)
+
+print("Menor faturamento diário:", menor_fat)
+print("Maior faturamento diário:", maior_fat)
+print("Número de dias com faturamento acima da média:", dias_acima_media)**
+
+#4)
+valor_sp = 67836.43
+valor_rj = 36678.66
+valor_mg = 29229.88
+valor_es = 27165.48
+valor_outros = 19849.53
+
+valor_total = valor_sp + valor_rj + valor_mg + valor_es + valor_outros
+
+percentual_sp = valor_sp / valor_total * 100
+percentual_rj = valor_rj / valor_total * 100
+percentual_mg = valor_mg / valor_total * 100
+percentual_es = valor_es / valor_total * 100
+percentual_outros = valor_outros / valor_total * 100
+
+print("Percentual de representação de SP: {:.2f}%".format(percentual_sp))
+print("Percentual de representação de RJ: {:.2f}%".format(percentual_rj))
+print("Percentual de representação de MG: {:.2f}%".format(percentual_mg))
+print("Percentual de representação de ES: {:.2f}%".format(percentual_es))
+print("Percentual de representação de Outros: {:.2f}%".format(percentual_outros))
+
+#5)
+def invert_string(string):
+    string_inverted = ""
+    length = len(string)
+
+    for i in range(length - 1, -1, -1):
+        string_inverted += string[i]
+
+    return string_inverted
+
+string = "Target" 
+string_inverted = invert_string(string)
+
+print("String original: {}".format(string))
+print("String invertida: {}".format(string_inverted))
